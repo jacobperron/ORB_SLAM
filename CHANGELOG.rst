@@ -2,8 +2,8 @@
 Changelog for package orb_slam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2016-11-14)
+------------------
 * Major project refactoring
 * Move headers into directory include/orb_slam
 * Add install rules
