@@ -2,6 +2,15 @@
 Changelog for package orb_slam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Major project refactoring
+* Move headers into directory include/orb_slam
+* Add install rules
+* Add cmake config file
+* Rename project to 'orb_slam'
+* Contributors: Jacob Perron
+
 1.0.1 (2016-11-14)
 ------------------
 * Update System.cc
