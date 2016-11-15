@@ -17,12 +17,11 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#include <mutex>
 
 #include "Map.h"
 
-#include<mutex>
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 Map::Map():mnMaxKFid(0)
@@ -118,4 +117,4 @@ void Map::clear()
     mvpKeyFrameOrigins.clear();
 }
 
-} //namespace ORB_SLAM
+} //namespace orb_slam

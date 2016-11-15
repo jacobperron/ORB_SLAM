@@ -18,15 +18,15 @@
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ORBEXTRACTOR_H
-#define ORBEXTRACTOR_H
+#ifndef ORB_SLAM_ORB_EXTRACTOR_H
+#define ORB_SLAM_ORB_EXTRACTOR_H
 
 #include <vector>
 #include <list>
+
 #include <opencv/cv.h>
 
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class ExtractorNode
@@ -45,7 +45,7 @@ public:
 class ORBextractor
 {
 public:
-    
+
     enum {HARRIS_SCORE=0, FAST_SCORE=1 };
 
     ORBextractor(int nfeatures, float scaleFactor, int nlevels,
@@ -87,7 +87,7 @@ public:
 protected:
 
     void ComputePyramid(cv::Mat image);
-    void ComputeKeyPointsOctTree(std::vector<std::vector<cv::KeyPoint> >& allKeypoints);    
+    void ComputeKeyPointsOctTree(std::vector<std::vector<cv::KeyPoint> >& allKeypoints);
     std::vector<cv::KeyPoint> DistributeOctTree(const std::vector<cv::KeyPoint>& vToDistributeKeys, const int &minX,
                                            const int &maxX, const int &minY, const int &maxY, const int &nFeatures, const int &level);
 
@@ -105,12 +105,11 @@ protected:
     std::vector<int> umax;
 
     std::vector<float> mvScaleFactor;
-    std::vector<float> mvInvScaleFactor;    
+    std::vector<float> mvInvScaleFactor;
     std::vector<float> mvLevelSigma2;
     std::vector<float> mvInvLevelSigma2;
 };
 
-} //namespace ORB_SLAM
+} //namespace orb_slam
 
-#endif
-
+#endif  // ORB_SLAM_ORB_EXTRACTOR_H

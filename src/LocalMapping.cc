@@ -17,15 +17,15 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#include <mutex>
 
-#include "LocalMapping.h"
 #include "LoopClosing.h"
 #include "ORBmatcher.h"
 #include "Optimizer.h"
+#include "LocalMapping.h"
 
-#include<mutex>
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 LocalMapping::LocalMapping(Map *pMap, const float bMonocular):
@@ -158,7 +158,7 @@ void LocalMapping::ProcessNewKeyFrame()
                 }
             }
         }
-    }    
+    }
 
     // Update links in the Covisibility Graph
     mpCurrentKeyFrame->UpdateConnections();
@@ -339,7 +339,7 @@ void LocalMapping::CreateNewMapPoints()
             }
             else if(bStereo1 && cosParallaxStereo1<cosParallaxStereo2)
             {
-                x3D = mpCurrentKeyFrame->UnprojectStereo(idx1);                
+                x3D = mpCurrentKeyFrame->UnprojectStereo(idx1);
             }
             else if(bStereo2 && cosParallaxStereo2<cosParallaxStereo1)
             {
@@ -433,7 +433,7 @@ void LocalMapping::CreateNewMapPoints()
             // Triangulation is succesfull
             MapPoint* pMP = new MapPoint(x3D,mpCurrentKeyFrame,mpMap);
 
-            pMP->AddObservation(mpCurrentKeyFrame,idx1);            
+            pMP->AddObservation(mpCurrentKeyFrame,idx1);
             pMP->AddObservation(pKF2,idx2);
 
             mpCurrentKeyFrame->AddMapPoint(pMP,idx1);
@@ -688,7 +688,7 @@ void LocalMapping::KeyFrameCulling()
                     }
                 }
             }
-        }  
+        }
 
         if(nRedundantObservations>0.9*nMPs)
             pKF->SetBadFlag();
@@ -746,7 +746,7 @@ bool LocalMapping::CheckFinish()
 void LocalMapping::SetFinish()
 {
     unique_lock<mutex> lock(mMutexFinish);
-    mbFinished = true;    
+    mbFinished = true;
     unique_lock<mutex> lock2(mMutexStop);
     mbStopped = true;
 }
@@ -757,4 +757,4 @@ bool LocalMapping::isFinished()
     return mbFinished;
 }
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam

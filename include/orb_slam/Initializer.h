@@ -17,14 +17,14 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef INITIALIZER_H
-#define INITIALIZER_H
+#ifndef ORB_SLAM_INITIALIZER_H
+#define ORB_SLAM_INITIALIZER_H
 
-#include<opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
+
 #include "Frame.h"
 
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 // THIS IS THE INITIALIZER FOR MONOCULAR SLAM. NOT USED IN THE STEREO OR RGBD CASE.
@@ -92,10 +92,10 @@ private:
     int mMaxIterations;
 
     // Ransac sets
-    vector<vector<size_t> > mvSets;   
+    vector<vector<size_t> > mvSets;
 
 };
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // INITIALIZER_H
+#endif  // ORB_SLAM_INITIALIZER_H

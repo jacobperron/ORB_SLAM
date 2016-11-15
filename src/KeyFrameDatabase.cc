@@ -17,17 +17,16 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#include <mutex>
+
+#include "DBoW2/BowVector.h"
 
 #include "KeyFrameDatabase.h"
-
 #include "KeyFrame.h"
-#include "Thirdparty/DBoW2/DBoW2/BowVector.h"
-
-#include<mutex>
 
 using namespace std;
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 KeyFrameDatabase::KeyFrameDatabase (const ORBVocabulary &voc):
@@ -308,4 +307,4 @@ vector<KeyFrame*> KeyFrameDatabase::DetectRelocalizationCandidates(Frame *F)
     return vpRelocCandidates;
 }
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam

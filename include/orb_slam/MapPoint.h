@@ -17,18 +17,18 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_MAP_POINT_H
+#define ORB_SLAM_MAP_POINT_H
 
-#ifndef MAPPOINT_H
-#define MAPPOINT_H
+#include <mutex>
 
-#include"KeyFrame.h"
-#include"Frame.h"
-#include"Map.h"
+#include <opencv2/core/core.hpp>
 
-#include<opencv2/core/core.hpp>
-#include<mutex>
+#include "KeyFrame.h"
+#include "Frame.h"
+#include "Map.h"
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class KeyFrame;
@@ -60,7 +60,7 @@ public:
     void SetBadFlag();
     bool isBad();
 
-    void Replace(MapPoint* pMP);    
+    void Replace(MapPoint* pMP);
     MapPoint* GetReplaced();
 
     void IncreaseVisible(int n=1);
@@ -105,14 +105,14 @@ public:
     // Variables used by loop closing
     long unsigned int mnLoopPointForKF;
     long unsigned int mnCorrectedByKF;
-    long unsigned int mnCorrectedReference;    
+    long unsigned int mnCorrectedReference;
     cv::Mat mPosGBA;
     long unsigned int mnBAGlobalForKF;
 
 
     static std::mutex mGlobalMutex;
 
-protected:    
+protected:
 
      // Position in absolute coordinates
      cv::Mat mWorldPos;
@@ -147,6 +147,6 @@ protected:
      std::mutex mMutexFeatures;
 };
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // MAPPOINT_H
+#endif  // ORB_SLAM_MAP_POINT_H

@@ -17,11 +17,9 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-
-
 #include "Converter.h"
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 std::vector<cv::Mat> Converter::toDescriptorVector(const cv::Mat &Descriptors)
@@ -148,4 +146,4 @@ std::vector<float> Converter::toQuaternion(const cv::Mat &M)
     return v;
 }
 
-} //namespace ORB_SLAM
+} //namespace orb_slam

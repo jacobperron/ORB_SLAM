@@ -17,14 +17,13 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_SYSTEM_H
+#define ORB_SLAM_SYSTEM_H
 
+#include <string>
+#include <thread>
 
-#ifndef SYSTEM_H
-#define SYSTEM_H
-
-#include<string>
-#include<thread>
-#include<opencv2/core/core.hpp>
+#include <opencv2/core/core.hpp>
 
 #include "Tracking.h"
 #include "FrameDrawer.h"
@@ -36,7 +35,7 @@
 #include "ORBVocabulary.h"
 #include "Viewer.h"
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Viewer;
@@ -91,19 +90,17 @@ public:
     void Shutdown();
 
     // Save camera trajectory in the TUM RGB-D dataset format.
-    // Only for stereo and RGB-D. This method does not work for monocular.
     // Call first Shutdown()
     // See format details at: http://vision.in.tum.de/data/datasets/rgbd-dataset
     void SaveTrajectoryTUM(const string &filename);
 
     // Save keyframe poses in the TUM RGB-D dataset format.
-    // This method works for all sensor input.
+    // Use this function in the monocular case.
     // Call first Shutdown()
     // See format details at: http://vision.in.tum.de/data/datasets/rgbd-dataset
     void SaveKeyFrameTrajectoryTUM(const string &filename);
 
     // Save camera trajectory in the KITTI dataset format.
-    // Only for stereo and RGB-D. This method does not work for monocular.
     // Call first Shutdown()
     // See format details at: http://www.cvlibs.net/datasets/kitti/eval_odometry.php
     void SaveTrajectoryKITTI(const string &filename);
@@ -160,6 +157,6 @@ private:
     bool mbDeactivateLocalizationMode;
 };
 
-}// namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // SYSTEM_H
+#endif  // ORB_SLAM_SYSTEM_H

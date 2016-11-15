@@ -18,16 +18,17 @@
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONVERTER_H
-#define CONVERTER_H
+#ifndef ORB_SLAM_CONVERTER_H
+#define ORB_SLAM_CONVERTER_H
 
-#include<opencv2/core/core.hpp>
+#include <opencv2/core/core.hpp>
 
-#include<Eigen/Dense>
-#include"Thirdparty/g2o/g2o/types/types_six_dof_expmap.h"
-#include"Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h"
+#include <Eigen/Dense>
 
-namespace ORB_SLAM2
+#include "g2o/types/types_six_dof_expmap.h"
+#include "g2o/types/types_seven_dof_expmap.h"
+
+namespace orb_slam
 {
 
 class Converter
@@ -52,6 +53,6 @@ public:
     static std::vector<float> toQuaternion(const cv::Mat &M);
 };
 
-}// namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // CONVERTER_H
+#endif // ORB_SLAM_CONVERTER_H

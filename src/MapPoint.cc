@@ -17,13 +17,12 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#include <mutex>
 
 #include "MapPoint.h"
 #include "ORBmatcher.h"
 
-#include<mutex>
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 long unsigned int MapPoint::nNextId=0;
@@ -416,6 +415,4 @@ int MapPoint::PredictScale(const float &currentDist, Frame* pF)
     return nScale;
 }
 
-
-
-} //namespace ORB_SLAM
+}  // namespace orb_slam

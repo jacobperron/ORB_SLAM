@@ -47,20 +47,20 @@
 * of the authors and should not be interpreted as representing official policies,
 *   either expressed or implied, of the FreeBSD Project
 */
-
+#include <algorithm>
+#include <cmath>
 #include <iostream>
+#include <vector>
+
+#include <opencv2/core/core.hpp>
+
+#include "DUtils/Random.h"
 
 #include "PnPsolver.h"
 
-#include <vector>
-#include <cmath>
-#include <opencv2/core/core.hpp>
-#include "Thirdparty/DBoW2/DUtils/Random.h"
-#include <algorithm>
-
 using namespace std;
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 
@@ -93,7 +93,7 @@ PnPsolver::PnPsolver(const Frame &F, const vector<MapPoint*> &vpMapPointMatches)
                 mvP3Dw.push_back(cv::Point3f(Pos.at<float>(0),Pos.at<float>(1), Pos.at<float>(2)));
 
                 mvKeyPointIndices.push_back(i);
-                mvAllIndices.push_back(idx);               
+                mvAllIndices.push_back(idx);
 
                 idx++;
             }
@@ -159,7 +159,7 @@ void PnPsolver::SetRansacParameters(double probability, int minInliers, int maxI
 cv::Mat PnPsolver::find(vector<bool> &vbInliers, int &nInliers)
 {
     bool bFlag;
-    return iterate(mRansacMaxIts,bFlag,vbInliers,nInliers);    
+    return iterate(mRansacMaxIts,bFlag,vbInliers,nInliers);
 }
 
 cv::Mat PnPsolver::iterate(int nIterations, bool &bNoMore, vector<bool> &vbInliers, int &nInliers)
@@ -1019,4 +1019,4 @@ void PnPsolver::mat_to_quat(const double R[3][3], double q[4])
   q[3] *= scale;
 }
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam

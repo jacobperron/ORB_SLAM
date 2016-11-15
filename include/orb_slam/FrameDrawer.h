@@ -18,20 +18,19 @@
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef FRAMEDRAWER_H
-#define FRAMEDRAWER_H
+#ifndef ORB_SLAM_FRAME_DRAWER_H
+#define ORB_SLAM_FRAME_DRAWER_H
+
+#include <mutex>
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/features2d/features2d.hpp>
 
 #include "Tracking.h"
 #include "MapPoint.h"
 #include "Map.h"
 
-#include<opencv2/core/core.hpp>
-#include<opencv2/features2d/features2d.hpp>
-
-#include<mutex>
-
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Tracking;
@@ -68,6 +67,6 @@ protected:
     std::mutex mMutex;
 };
 
-} //namespace ORB_SLAM
+} //namespace orb_slam
 
-#endif // FRAMEDRAWER_H
+#endif  // ORB_SLAM_FRAME_DRAWER_H

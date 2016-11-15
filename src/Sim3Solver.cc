@@ -17,22 +17,19 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-
-
-#include "Sim3Solver.h"
-
 #include <vector>
 #include <cmath>
+
 #include <opencv2/core/core.hpp>
+
+#include "DUtils/Random.h"
 
 #include "KeyFrame.h"
 #include "ORBmatcher.h"
+#include "Sim3Solver.h"
 
-#include "Thirdparty/DBoW2/DUtils/Random.h"
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
-
 
 Sim3Solver::Sim3Solver(KeyFrame *pKF1, KeyFrame *pKF2, const vector<MapPoint *> &vpMatched12, const bool bFixScale):
     mnIterations(0), mnBestInliers(0), mbFixScale(bFixScale)
@@ -115,7 +112,7 @@ void Sim3Solver::SetRansacParameters(double probability, int minInliers, int max
 {
     mRansacProb = probability;
     mRansacMinInliers = minInliers;
-    mRansacMaxIts = maxIterations;    
+    mRansacMaxIts = maxIterations;
 
     N = mvpMapPoints1.size(); // number of correspondences
 
@@ -422,4 +419,4 @@ void Sim3Solver::FromCameraToImage(const vector<cv::Mat> &vP3Dc, vector<cv::Mat>
     }
 }
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam

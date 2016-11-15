@@ -1,4 +1,44 @@
-# ORB-SLAM2
+# orb_slam
+
+**NOTE:** This is a fork of the original [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2.git).
+
+## Jacob's Fork ##
+
+* A `package.xml` file and install rules have been added for compatibility with catkin
+* ROS examples have been removed. Updated examples can be found in the repository [orb_slam_ros](https://github.com/jacobperron/orb_slam_ros.git)
+* Renamed project to snake-case **orb_slam** among other refactoring
+
+### Build ###
+
+#### Install dependencies ####
+
+```bash
+$ sudo apt-get install git libblas-dev liblapack-dev libglew-dev libeigen3-dev
+# Install Pangolin
+$ git clone https://github.com/stevenlovegrove/Pangolin.git $HOME/pangolin/Pangolin
+$ cd $HOME/pangolin/Pangolin
+$ mkdir build
+$ cd build
+$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/pangolin/install ..
+$ make -j
+$ make install
+```
+
+#### Build ORB-SLAM ####
+
+```bash
+# Clone ORB-SLAM
+$ git clone https://github.com/jacobperron/orb_slam.git $HOME/orb_slam/orb_slam
+$ cd orb_slam
+# Uncompress vocabulary + build g2o, DBoW, and ORB-SLAM library/examples
+$ chmod +x build.sh
+$ ./build.sh
+```
+
+---
+
+## About ##
+
 **Authors:** [Raul Mur-Artal](http://webdiis.unizar.es/~raulmur/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/), [J. M. M. Montiel](http://webdiis.unizar.es/~josemari/) and [Dorian Galvez-Lopez](http://doriangalvez.com/) ([DBoW2](https://github.com/dorian3d/DBoW2))
 
 **Current version:** 1.0.0 

@@ -17,19 +17,16 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_MAP_H
+#define ORB_SLAM_MAP_H
 
-#ifndef MAP_H
-#define MAP_H
+#include <mutex>
+#include <set>
 
 #include "MapPoint.h"
 #include "KeyFrame.h"
-#include <set>
 
-#include <mutex>
-
-
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class MapPoint;
@@ -75,6 +72,6 @@ protected:
     std::mutex mMutexMap;
 };
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // MAP_H
+#endif  // ORB_SLAM_MAP_H

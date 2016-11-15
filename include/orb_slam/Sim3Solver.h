@@ -19,17 +19,16 @@
 */
 
 
-#ifndef SIM3SOLVER_H
-#define SIM3SOLVER_H
+#ifndef ORB_SLAM_SIM_3_SOLVER_H
+#define ORB_SLAM_SIM_3_SOLVER_H
+
+#include <vector>
 
 #include <opencv2/opencv.hpp>
-#include <vector>
 
 #include "KeyFrame.h"
 
-
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Sim3Solver
@@ -128,6 +127,6 @@ protected:
 
 };
 
-} //namespace ORB_SLAM
+} //namespace orb_slam
 
-#endif // SIM3SOLVER_H
+#endif  // ORB_SLAM_SIM_3_SOLVER_H

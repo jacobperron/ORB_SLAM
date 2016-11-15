@@ -17,9 +17,10 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_LOCAL_MAPPING_H
+#define ORB_SLAM_LOCAL_MAPPING_H
 
-#ifndef LOCALMAPPING_H
-#define LOCALMAPPING_H
+#include <mutex>
 
 #include "KeyFrame.h"
 #include "Map.h"
@@ -27,10 +28,7 @@
 #include "Tracking.h"
 #include "KeyFrameDatabase.h"
 
-#include <mutex>
-
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Tracking;
@@ -123,6 +121,6 @@ protected:
     std::mutex mMutexAccept;
 };
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // LOCALMAPPING_H
+#endif  // ORB_SLAM_LOCAL_MAPPING_H

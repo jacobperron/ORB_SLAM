@@ -18,21 +18,21 @@
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KEYFRAME_H
-#define KEYFRAME_H
+#ifndef ORB_SLAM_KEY_FRAME_H
+#define ORB_SLAM_KEY_FRAME_H
+
+#include <mutex>
+
+#include "DBoW2/BowVector.h"
+#include "DBoW2/FeatureVector.h"
 
 #include "MapPoint.h"
-#include "Thirdparty/DBoW2/DBoW2/BowVector.h"
-#include "Thirdparty/DBoW2/DBoW2/FeatureVector.h"
 #include "ORBVocabulary.h"
 #include "ORBextractor.h"
 #include "Frame.h"
 #include "KeyFrameDatabase.h"
 
-#include <mutex>
-
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Map;
@@ -222,7 +222,7 @@ protected:
     // Bad flags
     bool mbNotErase;
     bool mbToBeErased;
-    bool mbBad;    
+    bool mbBad;
 
     float mHalfBaseline; // Only for visualization
 
@@ -233,6 +233,6 @@ protected:
     std::mutex mMutexFeatures;
 };
 
-} //namespace ORB_SLAM
+} //namespace orb_slam
 
-#endif // KEYFRAME_H
+#endif  // ORB_SLAM_KEY_FRAME_H

@@ -17,22 +17,22 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_FRAME_H
+#define ORB_SLAM_FRAME_H
 
-#ifndef FRAME_H
-#define FRAME_H
+#include <vector>
 
-#include<vector>
+#include <opencv2/opencv.hpp>
+
+#include "DBoW2/BowVector.h"
+#include "DBoW2/FeatureVector.h"
 
 #include "MapPoint.h"
-#include "Thirdparty/DBoW2/DBoW2/BowVector.h"
-#include "Thirdparty/DBoW2/DBoW2/FeatureVector.h"
 #include "ORBVocabulary.h"
 #include "KeyFrame.h"
 #include "ORBextractor.h"
 
-#include <opencv2/opencv.hpp>
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 #define FRAME_GRID_ROWS 48
 #define FRAME_GRID_COLS 64
@@ -208,6 +208,6 @@ private:
     cv::Mat mOw; //==mtwc
 };
 
-}// namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // FRAME_H
+#endif  // ORB_SLAM_FRAME_H

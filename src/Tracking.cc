@@ -17,30 +17,24 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-
-
-#include "Tracking.h"
+#include<iostream>
+#include<mutex>
 
 #include<opencv2/core/core.hpp>
 #include<opencv2/features2d/features2d.hpp>
 
-#include"ORBmatcher.h"
-#include"FrameDrawer.h"
-#include"Converter.h"
-#include"Map.h"
-#include"Initializer.h"
-
-#include"Optimizer.h"
-#include"PnPsolver.h"
-
-#include<iostream>
-
-#include<mutex>
-
+#include "Tracking.h"
+#include "ORBmatcher.h"
+#include "FrameDrawer.h"
+#include "Converter.h"
+#include "Map.h"
+#include "Initializer.h"
+#include "Optimizer.h"
+#include "PnPsolver.h"
 
 using namespace std;
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer, MapDrawer *pMapDrawer, Map *pMap, KeyFrameDatabase* pKFDB, const string &strSettingPath, const int sensor):
@@ -916,7 +910,7 @@ bool Tracking::TrackWithMotionModel()
             else if(mCurrentFrame.mvpMapPoints[i]->Observations()>0)
                 nmatchesMap++;
         }
-    }    
+    }
 
     if(mbOnlyTracking)
     {
@@ -1583,6 +1577,4 @@ void Tracking::InformOnlyTracking(const bool &flag)
     mbOnlyTracking = flag;
 }
 
-
-
-} //namespace ORB_SLAM
+}  // namespace orb_slam

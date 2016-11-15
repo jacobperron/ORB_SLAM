@@ -17,9 +17,10 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_OPTIMIZER_H
+#define ORB_SLAM_OPTIMIZER_H
 
-#ifndef OPTIMIZER_H
-#define OPTIMIZER_H
+#include "g2o/types/types_seven_dof_expmap.h"
 
 #include "Map.h"
 #include "MapPoint.h"
@@ -27,9 +28,7 @@
 #include "LoopClosing.h"
 #include "Frame.h"
 
-#include "Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h"
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class LoopClosing;
@@ -57,6 +56,6 @@ public:
                             g2o::Sim3 &g2oS12, const float th2, const bool bFixScale);
 };
 
-} //namespace ORB_SLAM
+} //namespace orb_slam
 
-#endif // OPTIMIZER_H
+#endif  // ORB_SLAM_OPTIMIZER_H

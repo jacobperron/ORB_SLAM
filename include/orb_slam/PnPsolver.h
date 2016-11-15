@@ -47,15 +47,15 @@
 * of the authors and should not be interpreted as representing official policies,
 *   either expressed or implied, of the FreeBSD Project
 */
-
-#ifndef PNPSOLVER_H
-#define PNPSOLVER_H
+#ifndef ORB_SLAM_PNP_SOLVER_H
+#define ORB_SLAM_PNP_SOLVER_H
 
 #include <opencv2/core/core.hpp>
+
 #include "MapPoint.h"
 #include "Frame.h"
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class PnPsolver {
@@ -193,6 +193,6 @@ class PnPsolver {
 
 };
 
-} //namespace ORB_SLAM
+} // namespace orb_slam
 
-#endif //PNPSOLVER_H
+#endif  // ORB_SLAM_PNP_SOLVER_H

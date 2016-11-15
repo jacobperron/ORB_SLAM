@@ -17,19 +17,17 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_VIEWER_H
+#define ORB_SLAM_VIEWER_H
 
-
-#ifndef VIEWER_H
-#define VIEWER_H
+#include <mutex>
 
 #include "FrameDrawer.h"
 #include "MapDrawer.h"
 #include "Tracking.h"
 #include "System.h"
 
-#include <mutex>
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Tracking;
@@ -80,12 +78,9 @@ private:
     bool mbStopped;
     bool mbStopRequested;
     std::mutex mMutexStop;
-
 };
 
-}
+}  // namespace orb_slam
 
-
-#endif // VIEWER_H
-	
+#endif  // ORB_SLAM_VIEWER_H
 

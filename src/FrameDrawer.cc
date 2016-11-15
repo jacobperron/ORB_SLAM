@@ -17,16 +17,15 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include "FrameDrawer.h"
-#include "Tracking.h"
+#include <mutex>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include<mutex>
+#include "FrameDrawer.h"
+#include "Tracking.h"
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 FrameDrawer::FrameDrawer(Map* pMap):mpMap(pMap)
@@ -84,7 +83,7 @@ cv::Mat FrameDrawer::DrawFrame()
                 cv::line(im,vIniKeys[i].pt,vCurrentKeys[vMatches[i]].pt,
                         cv::Scalar(0,255,0));
             }
-        }        
+        }
     }
     else if(state==Tracking::OK) //TRACKING
     {
@@ -199,4 +198,4 @@ void FrameDrawer::Update(Tracking *pTracker)
     mState=static_cast<int>(pTracker->mLastProcessedState);
 }
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam

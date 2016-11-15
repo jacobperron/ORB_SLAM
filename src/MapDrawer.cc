@@ -17,16 +17,16 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#include <mutex>
+
+#include <pangolin/pangolin.h>
 
 #include "MapDrawer.h"
 #include "MapPoint.h"
 #include "KeyFrame.h"
-#include <pangolin/pangolin.h>
-#include <mutex>
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
-
 
 MapDrawer::MapDrawer(Map* pMap, const string &strSettingPath):mpMap(pMap)
 {
@@ -261,4 +261,4 @@ void MapDrawer::GetCurrentOpenGLCameraMatrix(pangolin::OpenGlMatrix &M)
         M.SetIdentity();
 }
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam

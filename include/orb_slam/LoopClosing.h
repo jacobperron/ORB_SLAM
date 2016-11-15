@@ -17,23 +17,22 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_LOOP_CLOSING_H
+#define ORB_SLAM_LOOP_CLOSING_H
 
-#ifndef LOOPCLOSING_H
-#define LOOPCLOSING_H
+#include <thread>
+#include <mutex>
+
+#include "g2o/types/types_seven_dof_expmap.h"
 
 #include "KeyFrame.h"
 #include "LocalMapping.h"
 #include "Map.h"
 #include "ORBVocabulary.h"
 #include "Tracking.h"
-
 #include "KeyFrameDatabase.h"
 
-#include <thread>
-#include <mutex>
-#include "Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h"
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Tracking;
@@ -45,7 +44,7 @@ class LoopClosing
 {
 public:
 
-    typedef pair<set<KeyFrame*>,int> ConsistentGroup;    
+    typedef pair<set<KeyFrame*>,int> ConsistentGroup;
     typedef map<KeyFrame*,g2o::Sim3,std::less<KeyFrame*>,
         Eigen::aligned_allocator<std::pair<const KeyFrame*, g2o::Sim3> > > KeyFrameAndPose;
 
@@ -74,7 +73,7 @@ public:
     bool isFinishedGBA(){
         unique_lock<std::mutex> lock(mMutexGBA);
         return mbFinishedGBA;
-    }   
+    }
 
     void RequestFinish();
 
@@ -140,10 +139,9 @@ protected:
     // Fix scale in the stereo/RGB-D case
     bool mbFixScale;
 
-
     bool mnFullBAIdx;
 };
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // LOOPCLOSING_H
+#endif  // ORB_SLAM_LOOP_CLOSING_H

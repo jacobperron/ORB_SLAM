@@ -17,22 +17,16 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include "LoopClosing.h"
-
-#include "Sim3Solver.h"
-
-#include "Converter.h"
-
-#include "Optimizer.h"
-
-#include "ORBmatcher.h"
-
 #include<mutex>
 #include<thread>
 
+#include "Sim3Solver.h"
+#include "Converter.h"
+#include "Optimizer.h"
+#include "ORBmatcher.h"
+#include "LoopClosing.h"
 
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 LoopClosing::LoopClosing(Map *pMap, KeyFrameDatabase *pDB, ORBVocabulary *pVoc, const bool bFixScale):
@@ -74,7 +68,7 @@ void LoopClosing::Run()
                    CorrectLoop();
                }
             }
-        }       
+        }
 
         ResetIfRequested();
 
@@ -577,11 +571,11 @@ void LoopClosing::CorrectLoop()
     mpThreadGBA = new thread(&LoopClosing::RunGlobalBundleAdjustment,this,mpCurrentKF->mnId);
 
     // Loop closed. Release Local Mapping.
-    mpLocalMapper->Release();    
+    mpLocalMapper->Release();
 
     cout << "Loop Closed!" << endl;
 
-    mLastLoopKFid = mpCurrentKF->mnId;   
+    mLastLoopKFid = mpCurrentKF->mnId;
 }
 
 void LoopClosing::SearchAndFuse(const KeyFrameAndPose &CorrectedPosesMap)
@@ -770,5 +764,4 @@ bool LoopClosing::isFinished()
     return mbFinished;
 }
 
-
-} //namespace ORB_SLAM
+}  // namespace orb_slam

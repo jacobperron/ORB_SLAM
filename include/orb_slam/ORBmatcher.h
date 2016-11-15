@@ -17,25 +17,23 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_ORB_MATCHER_H
+#define ORB_SLAM_ORB_MATCHER_H
 
+#include <vector>
 
-#ifndef ORBMATCHER_H
-#define ORBMATCHER_H
-
-#include<vector>
-#include<opencv2/core/core.hpp>
-#include<opencv2/features2d/features2d.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/features2d/features2d.hpp>
 
 #include"MapPoint.h"
 #include"KeyFrame.h"
 #include"Frame.h"
 
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class ORBmatcher
-{    
+{
 public:
 
     ORBmatcher(float nnratio=0.6, bool checkOri=true);
@@ -101,6 +99,6 @@ protected:
     bool mbCheckOrientation;
 };
 
-}// namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // ORBMATCHER_H
+#endif  // ORB_SLAM_ORB_MATCHER_H

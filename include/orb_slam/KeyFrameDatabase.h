@@ -18,26 +18,23 @@
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KEYFRAMEDATABASE_H
-#define KEYFRAMEDATABASE_H
+#ifndef ORB_SLAM_KEY_FRAME_DATABASE_H
+#define ORB_SLAM_KEY_FRAME_DATABASE_H
 
 #include <vector>
 #include <list>
 #include <set>
+#include <mutex>
 
 #include "KeyFrame.h"
 #include "Frame.h"
 #include "ORBVocabulary.h"
 
-#include<mutex>
-
-
-namespace ORB_SLAM2
+namespace orb_slam 
 {
 
 class KeyFrame;
 class Frame;
-
 
 class KeyFrameDatabase
 {
@@ -69,6 +66,6 @@ protected:
   std::mutex mMutex;
 };
 
-} //namespace ORB_SLAM
+} //namespace orb_slam
 
-#endif
+#endif  // ORB_SLAM_KEY_FRAME_DATABASE_H

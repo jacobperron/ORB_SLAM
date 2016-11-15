@@ -17,30 +17,28 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ORB_SLAM_TRACKING_H
+#define ORB_SLAM_TRACKING_H
 
+#include <mutex>
 
-#ifndef TRACKING_H
-#define TRACKING_H
+#include <opencv2/core/core.hpp>
+#include <opencv2/features2d/features2d.hpp>
 
-#include<opencv2/core/core.hpp>
-#include<opencv2/features2d/features2d.hpp>
-
-#include"Viewer.h"
-#include"FrameDrawer.h"
-#include"Map.h"
-#include"LocalMapping.h"
-#include"LoopClosing.h"
-#include"Frame.h"
+#include "Viewer.h"
+#include "FrameDrawer.h"
+#include "Map.h"
+#include "LocalMapping.h"
+#include "LoopClosing.h"
+#include "Frame.h"
 #include "ORBVocabulary.h"
-#include"KeyFrameDatabase.h"
-#include"ORBextractor.h"
+#include "KeyFrameDatabase.h"
+#include "ORBextractor.h"
 #include "Initializer.h"
 #include "MapDrawer.h"
 #include "System.h"
 
-#include <mutex>
-
-namespace ORB_SLAM2
+namespace orb_slam
 {
 
 class Viewer;
@@ -51,7 +49,7 @@ class LoopClosing;
 class System;
 
 class Tracking
-{  
+{
 
 public:
     Tracking(System* pSys, ORBVocabulary* pVoc, FrameDrawer* pFrameDrawer, MapDrawer* pMapDrawer, Map* pMap,
@@ -169,10 +167,10 @@ protected:
     KeyFrame* mpReferenceKF;
     std::vector<KeyFrame*> mvpLocalKeyFrames;
     std::vector<MapPoint*> mvpLocalMapPoints;
-    
+
     // System
     System* mpSystem;
-    
+
     //Drawers
     Viewer* mpViewer;
     FrameDrawer* mpFrameDrawer;
@@ -216,6 +214,6 @@ protected:
     list<MapPoint*> mlpTemporalPoints;
 };
 
-} //namespace ORB_SLAM
+}  // namespace orb_slam
 
-#endif // TRACKING_H
+#endif  // ORB_SLAM_TRACKING_H

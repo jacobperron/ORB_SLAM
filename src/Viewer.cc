@@ -17,13 +17,13 @@
 * You should have received a copy of the GNU General Public License
 * along with ORB-SLAM2. If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include "Viewer.h"
-#include <pangolin/pangolin.h>
-
 #include <mutex>
 
-namespace ORB_SLAM2
+#include <pangolin/pangolin.h>
+
+#include "Viewer.h"
+
+namespace orb_slam
 {
 
 Viewer::Viewer(System* pSystem, FrameDrawer *pFrameDrawer, MapDrawer *pMapDrawer, Tracking *pTracking, const string &strSettingPath):
@@ -228,4 +228,4 @@ void Viewer::Release()
     mbStopped = false;
 }
 
-}
+}  // namespace orb_slam
