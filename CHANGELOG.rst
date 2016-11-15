@@ -2,8 +2,8 @@
 Changelog for package orb_slam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1 (2016-11-14)
+------------------
 * Update System.cc
 * SaveTrajectory functions retrieve full frame trajectory using relative rigid body transformations between each frame and its reference keyframe. This relative transform is computed when the frame was tracked. This is inaccurate in the monocular case, as each relative transformation is computed at the particular scale when each frame was tracked. A global scale change will make all relative transformations invalid, and this can happen in two cases:
   1) At loop closure
